@@ -1,0 +1,107 @@
+{
+  "BADRI": [
+    "BURJ BURHAN",
+    "FAKHRI-A",
+    "FAKHRI-B",
+    "SAIFEE-A",
+    "SAIFEE-B"
+  ],
+  "BURHANI": [
+    "BURHANI",
+    "RABVAT JIBLA",
+    "GABAJIWALA",
+    "HATIMI",
+    "MAIMOON-A",
+    "MAIMOON-B",
+    "MAIMOON-C",
+    "MUFADDAL",
+    "NAFEES",
+    "NEW JAMALI",
+    "NEW TAHERI"
+  ],
+  "EZZI": [
+    "BAZAR AREA 1",
+    "BAZAR AREA 2",
+    "BEHIND FRANKIE VIDEO",
+    "DECENT TAILOR",
+    "FRANKIE VIDEO",
+    "GURUNANAK CHS",
+    "KOHINOOR BAKERY",
+    "OPP AL MUFADDAL",
+    "SHIV SENA X LANE",
+    "SHIVSENA GALI",
+    "SP TUTORIALS"
+  ],
+  "FATEMI": [
+    "AL-DUVAIRAT",
+    "GHURFAT-A",
+    "GHURFAT-B",
+    "MASJID COMPLEX",
+    "MASKAN",
+    "MUBARAK",
+    "SHIKKAT"
+  ],
+  "HAKIMI": [
+    "ASHOK TOWER",
+    "ASHOK VIHAR",
+    "BAMANDAYAPADA",
+    "MANAVSTHAL"
+  ],
+  "JAMALI": [
+    "FATEMA",
+    "OLD JAMALI",
+    "RAFFEA",
+    "SAFAVI-A",
+    "SAFAVI-B",
+    "TASHYEED-A",
+    "TASHYEED-B"
+  ],
+  "MOHAMMEDI": [
+    "HIRANANDANI",
+    "NAHAR"
+  ],
+  "NAJMI": [
+    "KANAKIA RAINFOREST",
+    "BHAVANI NAGAR",
+    "ECO PARK",
+    "SAKINAKA",
+    "VASANT",
+    "VIJAY NAGAR"
+  ],
+  "SAIFEE": [
+    "AL-TAHERI-A",
+    "AL-TAHERI-B",
+    "MOHAMMEDI-A",
+    "MOHAMMEDI-B",
+    "AL-YAMANI-A",
+    "AL-YAMANI-B"
+  ],
+  "SHUJAYI": [
+    "ANMOL",
+    "ARISTO",
+    "CHAKALA",
+    "CHURCH ROAD",
+    "HILL-1",
+    "HILL-2",
+    "PIPELINE"
+  ],
+  "VAJIHI": [
+    "AMEEN",
+    "BAZAAR ROAD-1",
+    "BAZAAR ROAD-2",
+    "CRESCENT",
+    "LOK-A",
+    "LOK-B",
+    "MAPKHAN",
+    "MAROL MAROSHI ROAD",
+    "SHIRIN"
+  ],
+  "ZAINEE": [
+    "AL-BURHAN",
+    "QUTBI MANZIL",
+    "SHAMIKH",
+    "ZAINEE-A",
+    "ZAINEE-B",
+    "ZAINEE-C"
+  ]
+}
