@@ -1,4 +1,4 @@
-import { useCallback, useMemo } from "react";
+import { useMemo } from "react";
 import { AgGridReact } from "ag-grid-react";
 import "ag-grid-enterprise";
 import "ag-grid-community/styles/ag-grid.css";
@@ -48,14 +48,6 @@ export const InviteeGrid = ({ data }) => {
       resizable: false,
       filter: "agTextColumnFilter"
     };
-  }, []);
-
-  const processCellFromClipboard = useCallback(parameters => {
-    return parameters.value;
-  }, []);
-
-  const processCellForClipboard = useCallback(parameters => {
-    return parameters.value;
   }, []);
 
   return (
