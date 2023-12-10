@@ -1,10 +1,8 @@
 import {
-  addHouseController,
-  bulkEditVisitStatusController,
+  bulkInviteeUploadController,
   checkAdmin,
   checkAuth,
   connectDB,
-  getHouseListController,
   ncErrorHandlers
 } from "@/be";
 import { createRouter } from "next-connect";
@@ -14,9 +12,7 @@ const router = createRouter();
 router
   .use(connectDB)
   .use(checkAuth)
-  .get(getHouseListController)
-  .post(addHouseController)
   .use(checkAdmin)
-  .put(bulkEditVisitStatusController);
+  .post(bulkInviteeUploadController);
 
 export default router.handler(ncErrorHandlers);

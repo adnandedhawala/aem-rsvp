@@ -1,13 +1,16 @@
 import { sign, verify } from "jsonwebtoken";
 import { User } from "../models";
+import { USER_ROLES } from "@/appConstants";
 
 export const loginController = async (request, response) => {
   const { data } = request.body;
-  if (!data || !data.its || !data.password)
+  if (!data || !data.email || !data.password)
     response.status(400).end("login data is missing!");
   try {
-    const loginUser = await User.findOne({ itsId: Number(data.its) });
+    const loginUser = await User.findOne({ email: data.email });
     if (!loginUser) return response.status(400).send("user not found");
+    if (!loginUser.userRole.includes(USER_ROLES.Admin))
+      return response.status(400).send("user does not have access!");
     const isPasswordCorrect = data.password === loginUser.password;
     if (isPasswordCorrect) {
       const tokenData = {
@@ -23,7 +26,7 @@ export const loginController = async (request, response) => {
         tokenData,
         process.env.NEXT_PUBLIC_ACCESS_TOKEN_SALT,
         {
-          expiresIn: "8h"
+          expiresIn: "20h"
         }
       );
       return response.status(200).send({ data: authToken });

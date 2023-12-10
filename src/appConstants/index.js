@@ -20,7 +20,3 @@ export const PAGE_LIST = {
   LOGOUT: "LOGOUT"
 };
 
-export const VISIT_STATUS = {
-  TO_BE_VISITED: "TO BE VISITED",
-  VISITED: "VISITED"
-};

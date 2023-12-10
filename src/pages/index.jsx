@@ -1,4 +1,3 @@
-import { USER_ROLES } from "@/appConstants";
 import { login, saveAuthToken, useGlobalContext, verifyUser } from "@/fe";
 import { AppHead, FullPageLoader } from "@/fe/components";
 import { useMutation } from "@tanstack/react-query";
@@ -24,16 +23,12 @@ export default function Home() {
     mutationFn: () => verifyUser(),
     onSuccess: data => {
       setUserData(data);
-      redirectUserBasedOnRole(data.userRole);
+      redirectUserBasedOnRole();
     }
   });
 
-  const redirectUserBasedOnRole = userRole => {
-    if (userRole.includes(USER_ROLES.Admin)) {
-      router.push("/admin/houses");
-    } else {
-      router.push("/list");
-    }
+  const redirectUserBasedOnRole = () => {
+    router.push("/admin/list");
   };
 
   const onFinish = values => {
@@ -72,7 +67,7 @@ export default function Home() {
                 width={100}
                 height={100}
               />
-              <h1 className="font-semibold"> House Visits</h1>
+              <h1 className="font-semibold"> AEM RSVP</h1>
               <Form
                 name="login"
                 onFinish={onFinish}
@@ -83,16 +78,20 @@ export default function Home() {
                 size="large"
               >
                 <Form.Item
-                  label="ITS"
-                  name="its"
+                  label="Email"
+                  name="email"
                   rules={[
                     {
                       required: true,
-                      message: "Please input your its!"
+                      message: "Please input your email!"
+                    },
+                    {
+                      type: "email",
+                      message: "Please enter a valid email!"
                     }
                   ]}
                 >
-                  <Input placeholder="enter its number" />
+                  <Input placeholder="Email" />
                 </Form.Item>
 
                 <Form.Item
@@ -105,7 +104,7 @@ export default function Home() {
                     }
                   ]}
                 >
-                  <Input.Password />
+                  <Input.Password placeholder="Password" />
                 </Form.Item>
 
                 <Form.Item className="flex justify-center">

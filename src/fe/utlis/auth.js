@@ -1,17 +1,19 @@
+const AEM_RSVP_USER = "aem-rsvp-user";
+
 export const saveAuthToken = token => {
-  localStorage.setItem("aem_houses_user", token);
+  localStorage.setItem(AEM_RSVP_USER, token);
 };
 
 export const getAuthToken = () => {
-  return localStorage.getItem("aem_houses_user");
+  return localStorage.getItem(AEM_RSVP_USER);
 };
 
 export const clearAuthToken = () => {
-  localStorage.removeItem("aem_houses_user");
+  localStorage.removeItem(AEM_RSVP_USER);
 };
 
 export const getAuthHeader = () => {
-  const accessToken = localStorage.getItem("aem_houses_user");
+  const accessToken = localStorage.getItem(AEM_RSVP_USER);
   return { authorization: accessToken };
 };
 
