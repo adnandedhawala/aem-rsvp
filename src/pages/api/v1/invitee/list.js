@@ -3,7 +3,9 @@ import {
   checkAdmin,
   checkAuth,
   connectDB,
-  ncErrorHandlers
+  getInviteeListController,
+  ncErrorHandlers,
+  resetInviteeController
 } from "@/be";
 import { createRouter } from "next-connect";
 
@@ -13,6 +15,8 @@ router
   .use(connectDB)
   .use(checkAuth)
   .use(checkAdmin)
-  .post(bulkInviteeUploadController);
+  .get(getInviteeListController)
+  .post(bulkInviteeUploadController)
+  .put(resetInviteeController);
 
 export default router.handler(ncErrorHandlers);

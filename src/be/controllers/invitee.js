@@ -17,3 +17,23 @@ export const bulkInviteeUploadController = async (_request, response) => {
   }
 };
 
+export const resetInviteeController = async (_request, response) => {
+  try {
+    await Invitee.updateMany(
+      {},
+      { $set: { will_attend: false, has_filled_response: false } }
+    );
+    return response.status(200).send("Data is reset");
+  } catch (error) {
+    return response.status(500).send(error.message);
+  }
+};
+
+export const getInviteeListController = async (_request, response) => {
+  try {
+    const data = await Invitee.find({}).sort("file_number");
+    return response.status(200).send({ data });
+  } catch (error) {
+    return response.status(500).send(error.message);
+  }
+};

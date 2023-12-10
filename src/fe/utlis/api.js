@@ -7,7 +7,8 @@ const prefix =
 const API = {
   login: "user/auth/login",
   verify: "user/auth/verify",
-  invitee: "invitee"
+  invitee: "invitee",
+  inviteeList: "invitee/list"
 };
 
 export const getApiUrl = urlName => prefix + get(API, urlName);
