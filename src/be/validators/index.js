@@ -16,7 +16,9 @@ export const editVisitStatusSchema = yup.object().shape({
 export const bulkEditVisitStatusSchema = yup.array().of(
   yup.object().shape({
     itsId: yup.number().required(),
-    will_attend: yup.boolean().required(),
-    has_filled_response: yup.boolean()
+    fields: yup.object().shape({
+      will_attend: yup.boolean().required(),
+      has_filled_response: yup.boolean().required()
+    })
   })
 );
