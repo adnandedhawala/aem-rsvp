@@ -61,7 +61,7 @@ export const InviteeRSVPForm = ({
 
       <Form.Item
         className="mb-0"
-        label="Are you enrolled in any Committee ?"
+        label="Are you enrolled in any Committee ? (Burhani Gaurds, Sunrise, Toloba, Shabab)"
         name="enrolled_for_khidmat"
         rules={[
           {
