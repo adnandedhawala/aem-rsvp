@@ -9,7 +9,7 @@ export const addInviteeSchema = yup.object().shape({
   sector: yup.string().required(),
   enrolled_for_khidmat: yup.string().required().oneOf(["yes", "no"]),
   khidmat_name: yup.string(),
-  can_provide_utara: yup.string().required().oneOf(["yes", "no"]),
+  can_provide_utara: yup.string().required().oneOf(["yes", "no"])
 });
 
 export const editVisitStatusSchema = yup.object().shape({

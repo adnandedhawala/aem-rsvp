@@ -1,9 +1,4 @@
-import {
-  addInvitee,
-  findInvitees,
-  updateInviteeResponse,
-  useGlobalContext
-} from "@/fe";
+import { addInvitee, findInvitees, useGlobalContext } from "@/fe";
 import { AppHead, FullPageLoader, SearchFileForm } from "@/fe/components";
 import { InviteeRSVPForm } from "@/fe/components/forms/rsvp";
 import { useMutation } from "@tanstack/react-query";

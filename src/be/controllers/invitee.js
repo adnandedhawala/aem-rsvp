@@ -70,14 +70,11 @@ export const addInviteeController = async (request, response) => {
   try {
     const inviteedata = await addInviteeSchema.validate(data);
     try {
-      const data = await Invitee.findOneAndUpdate(
+      await Invitee.findOneAndUpdate(
         { itsId: inviteedata.itsId },
         inviteedata,
         { upsert: true, new: true }
       );
-
-      console.log(data, inviteedata);
-
       return response.status(200).send("Response Recieved Successfully!");
     } catch (error) {
       return response.status(500).send(error.message);
