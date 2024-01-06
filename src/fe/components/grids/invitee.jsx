@@ -21,22 +21,26 @@ export const InviteeGrid = ({ data }) => {
       flex: 1
     },
     { field: "name", headerName: "Name", flex: 3, minWidth: 400 },
+    { field: "mobile", headerName: "Contact", flex: 3, minWidth: 250 },
     { field: "sector", headerName: "Sector", flex: 2, minWidth: 200 },
+    { field: "sub_sector", headerName: "Sub Sector", flex: 2, minWidth: 200 },
     {
-      field: "has_filled_response",
-      headerName: "Form Filled",
+      field: "enrolled_for_khidmat",
+      headerName: "Is Part of Committee",
       flex: 2,
-      minWidth: 200,
-      valueFormatter: parameters =>
-        parameters.value && parameters.value === true ? "Yes" : "No"
+      minWidth: 200
     },
     {
-      field: "will_attend",
-      headerName: "Will Attend",
+      field: "khidmat_name",
+      headerName: "Khidmat Name",
+      flex: 3,
+      minWidth: 300
+    },
+    {
+      field: "can_provide_utara",
+      headerName: "Can Provide Utara",
       flex: 2,
-      minWidth: 200,
-      valueFormatter: parameters =>
-        parameters.value && parameters.value === true ? "Yes" : "No"
+      minWidth: 200
     }
   ];
 
