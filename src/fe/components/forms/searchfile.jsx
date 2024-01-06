@@ -25,6 +25,10 @@ export const SearchFileForm = ({ onFinish, isLoading }) => {
           {
             required: true,
             message: "Please enter file number!"
+          },
+          {
+            pattern: /^\d{1,4}$/,
+            message: "enter valid file!"
           }
         ]}
       >
@@ -38,6 +42,10 @@ export const SearchFileForm = ({ onFinish, isLoading }) => {
           {
             required: true,
             message: "Please enter Its Number!"
+          },
+          {
+            pattern: /^\d{8}$/,
+            message: "enter valid ITS!"
           }
         ]}
       >
