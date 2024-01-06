@@ -19,7 +19,8 @@ export const SearchFileForm = ({ onFinish, isLoading }) => {
     >
       <Form.Item
         label="File Number"
-        name="file_number"
+        name="fileNumber"
+        className="mb-4"
         rules={[
           {
             required: true,
@@ -28,6 +29,19 @@ export const SearchFileForm = ({ onFinish, isLoading }) => {
         ]}
       >
         <Input placeholder="FIle Number" />
+      </Form.Item>
+
+      <Form.Item
+        label="ITS ID"
+        name="itsId"
+        rules={[
+          {
+            required: true,
+            message: "Please enter Its Number!"
+          }
+        ]}
+      >
+        <Input placeholder="ITS Id" />
       </Form.Item>
 
       <Form.Item className="flex justify-center">

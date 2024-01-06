@@ -1,5 +1,6 @@
 import {
-  findInviteesByFile,
+  addInvitee,
+  findInvitees,
   updateInviteeResponse,
   useGlobalContext
 } from "@/fe";
@@ -22,13 +23,12 @@ const steps = {
 export default function Rsvp() {
   const { showLoader } = useGlobalContext();
   const [current, setCurrent] = useState(steps.SHOW_FILE_FORM);
-  const [currentFileNumber, setCurrentFileNumber] = useState(null);
-  const [inviteeList, setInviteeList] = useState([]);
+  const [currentMember, setCurrentMember] = useState(null);
 
   const { mutate: mutateFindInviteesByFile, isLoading: findInviteesLoading } =
     useMutation({
       mutationKey: "findInviteesByFile",
-      mutationFn: data => findInviteesByFile(data)
+      mutationFn: data => findInvitees(data)
     });
 
   const {
@@ -36,45 +36,37 @@ export default function Rsvp() {
     isLoading: sendInviteeResponseLoading
   } = useMutation({
     mutationKey: "sendInviteeResponse",
-    mutationFn: ({ filenumber, data }) =>
-      updateInviteeResponse(filenumber, data)
+    mutationFn: data => addInvitee(data)
   });
 
   const handleFindFile = (values, form) => {
-    mutateFindInviteesByFile(values.file_number, {
+    mutateFindInviteesByFile(values, {
       onError: error => {
         message.error(error);
       },
       onSuccess: data => {
         setCurrent(steps.SHOW_INVITEE_FORM);
-        setCurrentFileNumber(values.file_number);
-        setInviteeList(data);
+        setCurrentMember({
+          ...data.memberData,
+          tanzeem_file_no: values.fileNumber,
+          sector: data.fileData.sub_sector.sector.name,
+          sub_sector: data.fileData.sub_sector.name
+        });
         form.resetFields();
       }
     });
   };
 
   const handleSubmitInviteeResponse = (values, form) => {
-    const inviteeResponses = inviteeList.map(invitee => ({
-      itsId: invitee.itsId,
-      fields: {
-        will_attend: values[String(invitee.itsId)],
-        has_filled_response: true
-      }
-    }));
-    mutateSendInviteeResponse(
-      { filenumber: currentFileNumber, data: inviteeResponses },
-      {
-        onSuccess: data => {
-          form.resetFields();
-          message.success(data);
-          setCurrentFileNumber(null);
-          setInviteeList([]);
-          setCurrent(steps.SHOW_THANK_YOU);
-        },
-        onError: error => message.error(error)
-      }
-    );
+    mutateSendInviteeResponse(values, {
+      onSuccess: data => {
+        form.resetFields();
+        message.success(data);
+        setCurrentMember(null);
+        setCurrent(steps.SHOW_THANK_YOU);
+      },
+      onError: error => message.error(error)
+    });
   };
 
   return (
@@ -94,7 +86,7 @@ export default function Rsvp() {
                 height={100}
               />
               <h2 className="text-xl text-center font-semibold mb-2">
-                RSVP Form : Invitation 19th December
+                Khidmat Registration: Annual Jamea Imtehaan
               </h2>
               <p className="mb-2 text-center">
                 Kindly respond accurately, to confirm your presence in this
@@ -109,20 +101,16 @@ export default function Rsvp() {
                 />
               ) : null}
 
-              {current === steps.SHOW_INVITEE_FORM &&
-              currentFileNumber &&
-              inviteeList.length > 0 ? (
+              {current === steps.SHOW_INVITEE_FORM && currentMember ? (
                 <InviteeRSVPForm
                   isLoading={sendInviteeResponseLoading}
                   onFinish={handleSubmitInviteeResponse}
-                  inviteeList={inviteeList}
-                  file_number={currentFileNumber}
+                  member={currentMember}
                   handleCancel={() => setCurrent(steps.SHOW_FILE_FORM)}
                 />
               ) : null}
 
-              {current === steps.SHOW_INVITEE_FORM &&
-              (!currentFileNumber || inviteeList.length === 0) ? (
+              {current === steps.SHOW_INVITEE_FORM && !currentMember ? (
                 <Result
                   icon={<FileExcelOutlined />}
                   title="No invitees found from the file!"
@@ -135,11 +123,15 @@ export default function Rsvp() {
                 />
               ) : null}
 
-              {current === steps.SHOW_THANK_YOU &&
-              (!currentFileNumber || inviteeList.length === 0) ? (
+              {current === steps.SHOW_THANK_YOU && !currentMember ? (
                 <Result
                   icon={<SmileOutlined />}
                   title="Thank you for filling the form. Your response has been recorded"
+                  extra={
+                    <Button onClick={() => setCurrent(steps.SHOW_FILE_FORM)}>
+                      Go Back
+                    </Button>
+                  }
                 />
               ) : null}
             </div>

@@ -29,16 +29,32 @@ export const resetInviteeList = async () => {
     .then(data => data);
 };
 
-export const findInviteesByFile = async fileNumber => {
-  return fetch(getApiUrl("invitee") + "?file=" + fileNumber, {
-    method: "GET",
+export const findInvitees = async data => {
+  return fetch(
+    getApiUrl("invitee") + "?file=" + data.fileNumber + "&itsId=" + data.itsId,
+    {
+      method: "GET",
+      headers: {
+        ...getApplicationJsonHeader(),
+        ...getAuthHeader()
+      }
+    }
+  )
+    .then(handleResponse)
+    .then(data => data.data || []);
+};
+
+export const addInvitee = async inviteeData => {
+  return fetch(getApiUrl("invitee"), {
+    method: "POST",
     headers: {
       ...getApplicationJsonHeader(),
       ...getAuthHeader()
-    }
+    },
+    body: JSON.stringify({ data: inviteeData })
   })
     .then(handleResponse)
-    .then(data => data.data || []);
+    .then(data => data);
 };
 
 export const updateInviteeResponse = async (fileNumber, inviteeData) => {

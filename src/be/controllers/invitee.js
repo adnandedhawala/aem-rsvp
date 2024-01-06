@@ -1,6 +1,6 @@
 import housesData from "../../appConstants/houseData.json";
-import { Invitee } from "../models";
-import { bulkEditVisitStatusSchema } from "../validators";
+import { File, Invitee, Member } from "../models";
+import { addInviteeSchema, bulkEditVisitStatusSchema } from "../validators";
 
 export const bulkInviteeUploadController = async (_request, response) => {
   const data = housesData.map(value => ({
@@ -39,16 +39,51 @@ export const getInviteeListController = async (_request, response) => {
   }
 };
 
-export const getInviteeListByFileController = async (request, response) => {
-  const { file } = request.query;
+export const getInviteeController = async (request, response) => {
+  const { file, itsId } = request.query;
 
   if (!file) return response.status(400).send("file is required");
+  if (!itsId) return response.status(400).send("its Id is required");
 
   try {
-    const data = await Invitee.find({ file_number: file });
-    return response.status(200).send({ data });
+    const fileData = await File.findOne({
+      tanzeem_file_no: Number(file)
+    });
+    if (!fileData) return response.status(404).send("File not found");
+    if (!fileData.member_ids.includes(itsId))
+      return response.status(404).send("Its Id not found");
+
+    const memberData = await Member.findById(itsId);
+    if (!memberData) return response.status(404).send("Its Id not found");
+
+    return response.status(200).send({ data: { memberData, fileData } });
   } catch (error) {
     return response.status(500).send(error.message);
+  }
+};
+
+export const addInviteeController = async (request, response) => {
+  const { body } = request;
+  const { data } = body;
+  if (!data) return response.status(400).send("invalid request");
+
+  try {
+    const inviteedata = await addInviteeSchema.validate(data);
+    try {
+      const data = await Invitee.findOneAndUpdate(
+        { itsId: inviteedata.itsId },
+        inviteedata,
+        { upsert: true, new: true }
+      );
+
+      console.log(data, inviteedata);
+
+      return response.status(200).send("Response Recieved Successfully!");
+    } catch (error) {
+      return response.status(500).send(error.message);
+    }
+  } catch (error) {
+    return response.status(400).send(error.message);
   }
 };
 

@@ -1,6 +1,6 @@
 import { Schema } from "mongoose";
 
-export const inviteeSchema = new Schema(
+export const helperSchema = new Schema(
   {
     name: {
       type: String,
@@ -14,16 +14,23 @@ export const inviteeSchema = new Schema(
       type: String,
       required: true
     },
+    mobile: {
+      type: String
+    },
     sector: {
-      type: String,
-      required: true
+      type: String
     },
-    will_attend: {
-      type: Boolean
+    sub_sector: {
+      type: String
     },
-    has_filled_response: {
-      type: Boolean,
-      default: false
+    enrolled_for_khidmat: {
+      type: String
+    },
+    khidmat_name: {
+      String
+    },
+    can_provide_utara: {
+      type: String
     }
   },
   { timestamps: true }

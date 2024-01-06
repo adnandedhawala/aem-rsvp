@@ -16,6 +16,10 @@
   margin-bottom: 8px;
 }
 
+.ant-form-item .ant-form-item-label {
+  padding: 0 0 0 4px;
+}
+
 .errorCell{
   @apply text-red-500 !border !border-red-500 !border-solid;
 }

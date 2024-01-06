@@ -1,6 +1,7 @@
 import {
+  addInviteeController,
   connectDB,
-  getInviteeListByFileController,
+  getInviteeController,
   ncErrorHandlers,
   updateInviteeController
 } from "@/be";
@@ -10,7 +11,8 @@ const router = createRouter();
 
 router
   .use(connectDB)
-  .get(getInviteeListByFileController)
-  .put(updateInviteeController);
+  .get(getInviteeController)
+  .put(updateInviteeController)
+  .post(addInviteeController);
 
 export default router.handler(ncErrorHandlers);
