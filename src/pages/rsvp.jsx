@@ -89,7 +89,7 @@ export default function Rsvp() {
                 Inshallah Aqa Maula TUS Marol tashreef laave em umeed che. Ehni
                 tayyari waste jeh mumineen ne{" "}
                 <b>Khidmat ane potana gharo ma utara ni Khidmat</b> ni Niyat hoi
-                teh niche aapela link par register thai.{" "}
+                teh aa form fill kare.{" "}
                 <b>
                   Jeh Mumineen currently koi bhi idara Burhani Gaurds, SunRise,
                   Toloba ya Shabab maa nathi yej logo aa form fill kari ane koi
