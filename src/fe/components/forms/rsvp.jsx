@@ -105,7 +105,9 @@ export const InviteeRSVPForm = ({
             <Select.Option value="Reporting and Documentation">
               Reporting and Documentation
             </Select.Option>
-            <Select.Option value="Paani Pilawanu">Paani Pilawanu</Select.Option>
+            <Select.Option value="Paani Pilawanu">
+              Paani Pilawanu during Imtehaan
+            </Select.Option>
           </Select>
         </Form.Item>
       ) : null}

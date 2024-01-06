@@ -81,7 +81,7 @@ export default function Rsvp() {
                 height={100}
               />
               <h2 className="text-xl text-center font-semibold mb-2">
-                Khidmat Registration: Annual Jamea Imtehaan
+                Khidmat Registration: Annual Jamea Imtehaan 1445H
               </h2>
               <p className="mb-2 text-center">
                 Kindly respond accurately, to confirm your presence in this
