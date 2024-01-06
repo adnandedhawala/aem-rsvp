@@ -101,7 +101,7 @@ export const InviteeRSVPForm = ({
             <Select.Option value="Nazafaat">Safai / Nazafaat</Select.Option>
             <Select.Option value="Transport">Transport</Select.Option>
             <Select.Option value="Dana Committee">Dana Committee</Select.Option>
-            <Select.Option value="Tazyeen">Tazyeen</Select.Option>
+            <Select.Option value="Tazeen">Tazeen</Select.Option>
             <Select.Option value="Reporting and Documentation">
               Reporting and Documentation
             </Select.Option>
