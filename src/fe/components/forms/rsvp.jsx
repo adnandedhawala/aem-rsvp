@@ -61,7 +61,7 @@ export const InviteeRSVPForm = ({
 
       <Form.Item
         className="mb-0"
-        label="Are you Enrolled for Any Khidmat / Committee during Imtehaan?"
+        label="Are you enrolled in any Committee ?"
         name="enrolled_for_khidmat"
         rules={[
           {
@@ -79,7 +79,7 @@ export const InviteeRSVPForm = ({
       {enrolled_for === "no" ? (
         <Form.Item
           className="mb-2"
-          label="Would like to enroll for Khidmat during Imtehaan?"
+          label="Would like to enroll for any Khidmat?"
           name="khidmat_name"
           rules={[
             {
@@ -98,7 +98,7 @@ export const InviteeRSVPForm = ({
             <Select.Option value="Jamarwa ni khidmat">
               Jamarwa ni khidmat
             </Select.Option>
-            <Select.Option value="Nazafaat">Nazafaat</Select.Option>
+            <Select.Option value="Nazafaat">Safai / Nazafaat</Select.Option>
             <Select.Option value="Transport">Transport</Select.Option>
             <Select.Option value="Dana Committee">Dana Committee</Select.Option>
             <Select.Option value="Tazyeen">Tazyeen</Select.Option>
@@ -114,7 +114,7 @@ export const InviteeRSVPForm = ({
 
       <Form.Item
         className="mb-2"
-        label="Can you provide utara (accomodation) for Mehman during these days?"
+        label="Can you provide utara (accomodation) for Sahebo during these days?"
         name="can_provide_utara"
         rules={[
           {
