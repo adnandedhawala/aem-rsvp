@@ -14,7 +14,7 @@ export const InviteeGrid = ({ data }) => {
   const gridStyle = useMemo(() => ({ height: "100%", width: "100%" }), []);
 
   const columnDefs = [
-    { field: "itsId", headerName: "ITS", flex: 1, minWidth: 100 },
+    { field: "itsId", headerName: "ITS", flex: 1, minWidth: 200 },
     {
       field: "file_number",
       headerName: "File",
@@ -60,7 +60,8 @@ export const InviteeGrid = ({ data }) => {
       editable: false,
       minWidth: 100,
       flex: 1,
-      resizable: false,
+      resizable: true,
+      sortable: true,
       filter: "agTextColumnFilter"
     };
   }, []);
