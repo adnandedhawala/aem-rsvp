@@ -13,7 +13,7 @@ import {
   MainLayoutHeader
 } from "@/fe/components";
 import { useMutation, useQuery } from "@tanstack/react-query";
-import { Button, Layout, message } from "antd";
+import { Layout, message } from "antd";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 
@@ -51,18 +51,18 @@ export default function Houses() {
     }
   });
 
-  const { mutate: mutateResetList, isLoading: mutateResetListLoading } =
-    useMutation({
-      mutationKey: "adminEditHouses",
-      mutationFn: () => resetInviteeList(),
-      onError: error => {
-        message.error(error);
-      },
-      onSuccess: response => {
-        message.success(response);
-        refetch();
-      }
-    });
+  // const { mutate: mutateResetList, isLoading: mutateResetListLoading } =
+  const { isLoading: mutateResetListLoading } = useMutation({
+    mutationKey: "adminEditHouses",
+    mutationFn: () => resetInviteeList(),
+    onError: error => {
+      message.error(error);
+    },
+    onSuccess: response => {
+      message.success(response);
+      refetch();
+    }
+  });
 
   const {
     data,
@@ -75,9 +75,9 @@ export default function Houses() {
     staleTime: Number.POSITIVE_INFINITY
   });
 
-  const handleResetList = () => {
-    mutateResetList();
-  };
+  // const handleResetList = () => {
+  //   mutateResetList();
+  // };
 
   useEffect(() => {
     mutateVerifyUser();
@@ -98,9 +98,9 @@ export default function Houses() {
         <Content className="mt-16 px-6">
           <div className="mt-4"></div>
           <div className="flex items-start justify-end w-full mb-4">
-            <Button type="primary" danger onClick={handleResetList}>
+            {/* <Button type="primary" danger onClick={handleResetList}>
               Reset List
-            </Button>
+            </Button> */}
           </div>
           <InviteeGrid data={data || []} />
         </Content>

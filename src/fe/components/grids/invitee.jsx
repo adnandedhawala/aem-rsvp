@@ -3,6 +3,7 @@ import { AgGridReact } from "ag-grid-react";
 import "ag-grid-enterprise";
 import "ag-grid-community/styles/ag-grid.css";
 import "ag-grid-community/styles/ag-theme-alpine.css";
+import moment from "moment";
 
 export const InviteeGrid = ({ data }) => {
   const containerStyle = useMemo(
@@ -41,6 +42,16 @@ export const InviteeGrid = ({ data }) => {
       headerName: "Can Provide Utara",
       flex: 2,
       minWidth: 200
+    },
+    {
+      field: "updatedAt",
+      headerName: "Updated At",
+      flex: 2,
+      minWidth: 200,
+      valueFormatter: parameters =>
+        parameters.value
+          ? moment(parameters.value).format("hh:mm A / DD-MM-YYYY")
+          : "-"
     }
   ];
 
