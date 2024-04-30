@@ -17,14 +17,14 @@ const { Content } = Layout;
 const steps = {
   SHOW_FILE_FORM: "show_file_form",
   SHOW_INVITEE_FORM: "show_invitee_form",
-  SHOW_THANK_YOU: "show_thank_you"
+  SHOW_THANK_YOU: "show_thank_you",
+  SHOW_WHATSAPP: "show_whatapp"
 };
 
 export default function Rsvp() {
   const { showLoader } = useGlobalContext();
   const [current, setCurrent] = useState(steps.SHOW_FILE_FORM);
   const [currentMember, setCurrentMember] = useState(null);
-  const [showWhatsApp, setShowWhatsApp] = useState(false);
 
   const {
     data: inviteeCount,
@@ -94,7 +94,11 @@ export default function Rsvp() {
         form.resetFields();
         message.success(data);
         setCurrentMember(null);
-        setCurrent(steps.SHOW_THANK_YOU);
+        if (values.enrolled_for_khidmat === "yes") {
+          setCurrent(steps.SHOW_WHATSAPP);
+        } else {
+          setCurrent(steps.SHOW_THANK_YOU);
+        }
       },
       onError: error => message.error(error)
     });
@@ -141,9 +145,7 @@ export default function Rsvp() {
                 />
               ) : null}
 
-              {current === steps.SHOW_INVITEE_FORM &&
-              isCurrentMemberValid &&
-              !showWhatsApp ? (
+              {current === steps.SHOW_INVITEE_FORM && isCurrentMemberValid ? (
                 <InviteeRSVPForm
                   isLoading={sendInviteeResponseLoading}
                   onFinish={handleSubmitInviteeResponse}
@@ -165,9 +167,7 @@ export default function Rsvp() {
                 />
               ) : null}
 
-              {current === steps.SHOW_INVITEE_FORM &&
-              showWhatsApp &&
-              isCurrentMemberValid ? (
+              {current === steps.SHOW_WHATSAPP ? (
                 <div className="my-4 flex flex-col items-center justify-center">
                   <p className="text-lg mb-2 text-center font-semibold">
                     Click Image below to Join WhatsApp Group of Zakereen
@@ -186,6 +186,9 @@ export default function Rsvp() {
                       height={270}
                     />
                   </a>
+                  <Button onClick={() => setCurrent(steps.SHOW_FILE_FORM)}>
+                    Go Back
+                  </Button>
                 </div>
               ) : null}
 
