@@ -18,7 +18,7 @@ export const SearchFileForm = ({ onFinish, isLoading }) => {
       size="large"
     >
       <Form.Item
-        label="File Number"
+        label="Marol Jamaat File Number"
         name="fileNumber"
         className="mb-4"
         rules={[
@@ -32,7 +32,7 @@ export const SearchFileForm = ({ onFinish, isLoading }) => {
           }
         ]}
       >
-        <Input placeholder="FIle Number" />
+        <Input placeholder="Marol Jamaat File Number" />
       </Form.Item>
 
       <Form.Item
@@ -54,7 +54,7 @@ export const SearchFileForm = ({ onFinish, isLoading }) => {
 
       <Form.Item className="flex justify-center">
         <Button disabled={isLoading} type="primary" htmlType="submit">
-          Find
+          Proceed
         </Button>
       </Form.Item>
     </Form>

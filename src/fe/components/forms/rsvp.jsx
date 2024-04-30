@@ -66,7 +66,7 @@ export const InviteeRSVPForm = ({
 
       <Form.Item
         className="mb-0"
-        label="I want enroll for Barnamaj / (Mane Barnamj ma shamil thavu che)"
+        label="I want to register for Zakereen Barnamaj (Mane Zakereen Barnamj ma shamil thavu che)"
         name="enrolled_for_khidmat"
         rules={[
           {
@@ -80,6 +80,27 @@ export const InviteeRSVPForm = ({
           <Radio value="no"> No </Radio>
         </Radio.Group>
       </Form.Item>
+
+      {/* {enrolled_for === "yes" && (
+        <div className="my-4 flex flex-col items-center justify-center">
+          <p className="text-lg mb-2 text-center font-semibold">
+            Click Image below to Join WhatsApp Group of Zakereen Barnamaj
+          </p>
+          <a
+            target="_blank"
+            href="https://chat.whatsapp.com/ErqyyVWB32Z2sKdCVeL3OP"
+            rel="noreferrer"
+          >
+            <Image
+              className="border-2 border-solid border-black p-2"
+              src="/sample.png"
+              alt="logo"
+              width={200}
+              height={270}
+            />
+          </a>
+        </div>
+      )} */}
 
       <Form.Item className="flex justify-center mt-4">
         <Button disabled={isLoading} type="primary" htmlType="submit">

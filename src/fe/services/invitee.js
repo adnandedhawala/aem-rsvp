@@ -17,6 +17,18 @@ export const getInviteeList = async () => {
     .then(data => data.data);
 };
 
+export const getInviteeCount = async () => {
+  return fetch(getApiUrl("inviteeCount"), {
+    method: "GET",
+    headers: {
+      ...getApplicationJsonHeader(),
+      ...getAuthHeader()
+    }
+  })
+    .then(handleResponse)
+    .then(data => data);
+};
+
 export const resetInviteeList = async () => {
   return fetch(getApiUrl("inviteeList"), {
     method: "PUT",
