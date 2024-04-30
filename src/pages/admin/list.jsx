@@ -92,7 +92,7 @@ export default function Houses() {
       <Layout className="min-h-screen">
         <MainLayoutHeader
           showBack={false}
-          pageTitle="Houses List"
+          pageTitle="Al Jamea TUS Saifiyah Marol - Zakereen Barnamaj List"
           handleLogout={handleLogout}
         />
         <Content className="mt-16 px-6">
