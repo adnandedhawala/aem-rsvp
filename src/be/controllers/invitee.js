@@ -66,6 +66,11 @@ export const getInviteeCountController = async (request, response) => {
   try {
     const data = await Invitee.aggregate([
       {
+        $match: {
+          enrolled_for_khidmat: "yes"
+        }
+      },
+      {
         $group: {
           _id: "$gender",
           count: { $sum: 1 }
