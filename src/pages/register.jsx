@@ -67,7 +67,7 @@ export default function Rsvp() {
       return false;
     if (currentMember?.gender === "Female" && availableSeats.female === 0)
       return false;
-    return currentMember && currentMember?.age > 15;
+    return currentMember && currentMember?.age > 1;
   }, [currentMember, availableSeats]);
 
   const handleFindFile = (values, form) => {
