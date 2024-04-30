@@ -66,7 +66,7 @@ export const InviteeRSVPForm = ({
 
       <Form.Item
         className="mb-0"
-        label="I want to register for Zakereen Barnamaj (Mane Zakereen Barnamj ma shamil thavu che)"
+        label="I want to register for Zakereen Barnamaj from 2nd May (Thursday) to 4th May (Saturday) "
         name="enrolled_for_khidmat"
         rules={[
           {
