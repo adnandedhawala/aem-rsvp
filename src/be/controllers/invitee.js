@@ -62,6 +62,23 @@ export const getInviteeController = async (request, response) => {
   }
 };
 
+export const getInviteeCountController = async (request, response) => {
+  try {
+    const data = await Invitee.aggregate([
+      {
+        $group: {
+          _id: "$gender",
+          count: { $sum: 1 }
+        }
+      }
+    ]);
+
+    return response.status(200).send({ data });
+  } catch (error) {
+    return response.status(500).send(error.message);
+  }
+};
+
 export const addInviteeController = async (request, response) => {
   const { body } = request;
   const { data } = body;

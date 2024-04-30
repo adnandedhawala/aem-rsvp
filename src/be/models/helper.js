@@ -31,6 +31,12 @@ export const helperSchema = new Schema(
     },
     can_provide_utara: {
       type: String
+    },
+    age: {
+      type: Number
+    },
+    gender: {
+      type: String
     }
   },
   { timestamps: true }

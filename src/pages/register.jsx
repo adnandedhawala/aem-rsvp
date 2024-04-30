@@ -81,20 +81,10 @@ export default function Rsvp() {
                 height={100}
               />
               <h2 className="text-xl text-center font-semibold mb-2">
-                Aqa Maula TUS Safar Mubarak
+                Al Jamea TUS Saifiyah Zakereen Barnamaj
               </h2>
               <p className="mb-2 text-center">
                 Salaam un Jameel <br />
-                Al Jamea TUS Saifiyah ni Tehreeri Imtehan (Written Exams) waste
-                Inshallah Aqa Maula TUS Marol tashreef laave em umeed che. Ehni
-                tayyari waste jeh mumineen ne{" "}
-                <b>Khidmat ane potana gharo ma utara ni Khidmat</b> ni Niyat hoi
-                teh aa form fill kare.{" "}
-                <b>
-                  Jeh Mumineen currently koi bhi idara Burhani Gaurds, SunRise,
-                  Toloba ya Shabab maa nathi yej logo aa form fill kari ane koi
-                  ek available khidmat maa shamil thai.
-                </b>
               </p>
 
               {current === steps.SHOW_FILE_FORM ? (
