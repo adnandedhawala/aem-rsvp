@@ -57,7 +57,7 @@ export default function Rsvp() {
       inviteeCount?.data?.filter(({ _id }) => _id === "Female")[0]?.count || 0;
     return {
       male: Number(500) - maleCount,
-      female: Number(150) - femaleCount
+      female: Number(144) - femaleCount
     };
   }, [inviteeCount]);
 
