@@ -80,8 +80,8 @@ export default function Rsvp() {
         setCurrentMember({
           ...data.memberData,
           tanzeem_file_no: values.fileNumber,
-          sector: data.fileData.sub_sector.sector.name,
-          sub_sector: data.fileData.sub_sector.name
+          sector: data?.fileData?.sub_sector?.sector?.name || "-",
+          sub_sector: data?.fileData?.sub_sector?.name || "-"
         });
         form.resetFields();
       }
