@@ -63,9 +63,9 @@ export default function Rsvp() {
 
   const isCurrentMemberValid = useMemo(() => {
     if (!currentMember) return false;
-    if (currentMember?.gender === "Male" && availableSeats.male === 0)
+    if (currentMember?.gender === "Male" && availableSeats.male < 1)
       return false;
-    if (currentMember?.gender === "Female" && availableSeats.female === 0)
+    if (currentMember?.gender === "Female" && availableSeats.female < 1)
       return false;
     return currentMember && currentMember?.age > 1;
   }, [currentMember, availableSeats]);
