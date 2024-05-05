@@ -66,15 +66,20 @@ export const InviteeRSVPForm = ({
         <Input disabled />
       </Form.Item>
 
-      <p className="text-sm mb-4 text-[#333]">
+      <p className="text-sm font-semibold mb-4 text-[#333]">
         Sayedi Abdulqadir Hakimuddin AQ na urs Mubarak na Miqaat par Mamlook e
-        Sayedna TUS / Amte Sayedna, aap Maula ni khair ni Rasam{" "}
-        {"'Sabeel ul khaire wal barakat'"} maa
+        Sayedna TUS / Amte Sayedna, aap Maula ni khair ni Rasam
+        <span className="text-red-400 mx-1">Sabeel ul khaire wal barakat</span>
+        maa
       </p>
 
       <Form.Item
         className="mb-0"
-        label="Mari Montly Residence Sabeel ma :"
+        label={
+          <span className="font-semibold">
+            Mari Montly Residence Sabeel ma :
+          </span>
+        }
         name="enrolled_for_khidmat"
         rules={[
           {
@@ -85,21 +90,25 @@ export const InviteeRSVPForm = ({
       >
         <Radio.Group className="mt-2">
           <Space direction="vertical">
-            <Radio value="50%"> 50% </Radio>
-            <p className="text-sm text-gray-600" key="50%">
-              If your current Sabeel is 1000/- per month than it will become
-              1500/- per month.
-            </p>
-            <Radio value="100%"> 100% </Radio>
+            <Radio value="100%">
+              <span className="font-bold text-lg">100% </span>
+            </Radio>
             <p className="text-sm text-gray-600" key="100%">
-              If your current Sabeel is 1000/- per month than it will become
-              2000/- per month.
+              <span className="font-semibold mr-1">Ex: </span>If your current
+              Sabeel is 1000/- per month than it will become 2000/- per month.
+            </p>
+            <Radio value="50%">
+              <span className="font-bold text-lg">50% </span>
+            </Radio>
+            <p className="text-sm text-gray-600" key="50%">
+              <span className="font-semibold mr-1">Ex: </span>If your current
+              Sabeel is 1000/- per month than it will become 1500/- per month.
             </p>
           </Space>
         </Radio.Group>
       </Form.Item>
 
-      <p className="text-sm my-4 text-[#333]">
+      <p className="text-sm font-semibold my-4 text-[#333]">
         si Idafah (increment) em niyat araz Karu chu. Kindly update the Jamat
         system to record my above Niyat Takhmeen (Applicable from Moharram ul
         Harram 1446)
