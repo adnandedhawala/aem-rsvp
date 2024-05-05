@@ -36,7 +36,7 @@ export const SearchFileForm = ({ onFinish, isLoading }) => {
       </Form.Item>
 
       <Form.Item
-        label="ITS ID"
+        label="HOF ITS ID"
         name="itsId"
         rules={[
           {
@@ -49,7 +49,7 @@ export const SearchFileForm = ({ onFinish, isLoading }) => {
           }
         ]}
       >
-        <Input placeholder="ITS Id" />
+        <Input placeholder="HOF ITS Id" />
       </Form.Item>
 
       <Form.Item className="flex justify-center">

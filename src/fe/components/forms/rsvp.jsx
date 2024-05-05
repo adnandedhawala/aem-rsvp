@@ -1,4 +1,4 @@
-import { Button, Divider, Form, Input, Radio } from "antd";
+import { Button, Divider, Form, Input, Radio, Space } from "antd";
 
 export const InviteeRSVPForm = ({
   onFinish,
@@ -20,6 +20,7 @@ export const InviteeRSVPForm = ({
       layout="vertical"
       form={rsvpForm}
       className="w-full"
+      requiredMark={false}
       initialValues={{
         name: member?.full_name,
         file_number: member?.tanzeem_file_no,
@@ -38,6 +39,7 @@ export const InviteeRSVPForm = ({
         <p>ITS : {member?._id || "-"}</p>
         <p>Contact : {member?.mobile || "-"}</p>
       </div>
+      <Divider />
 
       <Form.Item name="itsId" className="hidden">
         <Input disabled />
@@ -64,43 +66,44 @@ export const InviteeRSVPForm = ({
         <Input disabled />
       </Form.Item>
 
+      <p className="text-sm mb-4 text-[#333]">
+        Sayedi Abdulqadir Hakimuddin AQ na urs Mubarak na Miqaat par Mamlook e
+        Sayedna TUS / Amte Sayedna, aap Maula ni khair ni Rasam{" "}
+        {"'Sabeel ul khaire wal barakat'"} maa
+      </p>
+
       <Form.Item
         className="mb-0"
-        label="I want to register for Zakereen Barnamaj from 2nd May (Thursday) to 4th May (Saturday) "
+        label="Mari Montly Residence Sabeel ma :"
         name="enrolled_for_khidmat"
         rules={[
           {
             required: true,
-            message: "Select Yes or No!"
+            message: "Please select an option!"
           }
         ]}
       >
-        <Radio.Group optionType="button" buttonStyle="solid" className="mt-2">
-          <Radio value="yes"> Yes </Radio>
-          <Radio value="no"> No </Radio>
+        <Radio.Group className="mt-2">
+          <Space direction="vertical">
+            <Radio value="50%"> 50% </Radio>
+            <p className="text-sm text-gray-600" key="50%">
+              If your current Sabeel is 1000/- per month than it will become
+              1500/- per month.
+            </p>
+            <Radio value="100%"> 100% </Radio>
+            <p className="text-sm text-gray-600" key="100%">
+              If your current Sabeel is 1000/- per month than it will become
+              2000/- per month.
+            </p>
+          </Space>
         </Radio.Group>
       </Form.Item>
 
-      {/* {enrolled_for === "yes" && (
-        <div className="my-4 flex flex-col items-center justify-center">
-          <p className="text-lg mb-2 text-center font-semibold">
-            Click Image below to Join WhatsApp Group of Zakereen Barnamaj
-          </p>
-          <a
-            target="_blank"
-            href="https://chat.whatsapp.com/ErqyyVWB32Z2sKdCVeL3OP"
-            rel="noreferrer"
-          >
-            <Image
-              className="border-2 border-solid border-black p-2"
-              src="/sample.png"
-              alt="logo"
-              width={200}
-              height={270}
-            />
-          </a>
-        </div>
-      )} */}
+      <p className="text-sm my-4 text-[#333]">
+        si Idafah (increment) em niyat araz Karu chu. Kindly update the Jamat
+        system to record my above Niyat Takhmeen (Applicable from Moharram ul
+        Harram 1446)
+      </p>
 
       <Form.Item className="flex justify-center mt-4">
         <Button disabled={isLoading} type="primary" htmlType="submit">

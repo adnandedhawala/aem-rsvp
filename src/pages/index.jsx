@@ -67,9 +67,7 @@ export default function Home() {
                 width={100}
                 height={100}
               />
-              <h1 className="font-semibold">
-                Al Jamea TUS Saifiyah Marol - Zakereen Barnamaj
-              </h1>
+              <h1 className="font-semibold">Sabeel Niyat Form</h1>
               <Form
                 name="login"
                 onFinish={onFinish}
