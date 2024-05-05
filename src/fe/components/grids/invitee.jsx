@@ -27,7 +27,7 @@ export const InviteeGrid = ({ data }) => {
     { field: "age", headerName: "Age", flex: 2, minWidth: 200 },
     {
       field: "enrolled_for_khidmat",
-      headerName: "Registered for Barnamaj",
+      headerName: "Increase Sabeel By",
       flex: 2,
       minWidth: 200
     },
