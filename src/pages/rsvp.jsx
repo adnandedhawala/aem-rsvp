@@ -1,12 +1,7 @@
-import {
-  addInvitee,
-  findInvitees,
-  getInviteeCount,
-  useGlobalContext
-} from "@/fe";
+import { addInvitee, findInvitees, useGlobalContext } from "@/fe";
 import { AppHead, FullPageLoader, SearchFileForm } from "@/fe/components";
 import { InviteeRSVPForm } from "@/fe/components/forms/rsvp";
-import { useMutation, useQuery } from "@tanstack/react-query";
+import { useMutation } from "@tanstack/react-query";
 import { Button, Card, Layout, Result, message } from "antd";
 import Image from "next/image";
 import { useMemo, useState } from "react";
@@ -69,7 +64,7 @@ export default function Rsvp() {
         form.resetFields();
         message.success(data);
         setCurrentMember(null);
-        setCurrent(steps.SHOW_THANK_YOU)
+        setCurrent(steps.SHOW_THANK_YOU);
       },
       onError: error => message.error(error)
     });
