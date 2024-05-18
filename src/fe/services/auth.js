@@ -3,7 +3,8 @@ import {
   getApiUrl,
   getApplicationJsonHeader,
   getAuthToken,
-  handleLoginResponse
+  handleLoginResponse,
+  handleResponse
 } from "../utlis";
 
 export const login = loginInfo => {
@@ -30,4 +31,14 @@ export const verifyUser = async () => {
     },
     body: JSON.stringify({ data: accessToken })
   }).then(handleLoginResponse);
+};
+
+export const validateAuthUser = async authToken => {
+  return fetch(getApiUrl("validate"), {
+    method: "POST",
+    headers: {
+      ...getApplicationJsonHeader()
+    },
+    body: JSON.stringify({ data: authToken })
+  }).then(handleResponse);
 };

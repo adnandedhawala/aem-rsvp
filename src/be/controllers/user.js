@@ -51,3 +51,17 @@ export const verifyUserController = async (request, response) => {
       : response.status(401).send("invalid access token");
   }
 };
+
+export const validateAuthTokenController = async (request, response) => {
+  const { data } = request.body;
+  if (!data || data === "")
+    return response.status(401).end("token is missing!");
+  try {
+    const userData = verify(data, process.env.NEXT_PUBLIC_AUTH_SALT);
+    return response.status(200).send(userData);
+  } catch (error) {
+    return error.name === "TokenExpiredError"
+      ? response.status(403).send("user session has expired")
+      : response.status(401).send("invalid access token");
+  }
+};

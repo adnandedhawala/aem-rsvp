@@ -7,6 +7,7 @@ const prefix =
 const API = {
   login: "user/auth/login",
   verify: "user/auth/verify",
+  validate: "user/auth/validate",
   invitee: "invitee",
   inviteeList: "invitee/list",
   inviteeCount: "invitee/count"
