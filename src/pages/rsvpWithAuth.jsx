@@ -35,7 +35,7 @@ export default function Rsvp() {
     mutate: mutatateValidateAuthUser,
     isLoading: validateAuthUserLoading
   } = useMutation({
-    mutationKey: "verifyFn",
+    mutationKey: "mutateValidateAuthUserFn",
     mutationFn: token => validateAuthUser(token),
     onSuccess: data => {
       mutateFindInviteesByFile({
@@ -141,7 +141,10 @@ export default function Rsvp() {
                 />
               ) : null}
 
-              {current === steps.SHOW_INVALID_AUTH && !isCurrentMemberValid ? (
+              {current === steps.SHOW_INVALID_AUTH &&
+              !isCurrentMemberValid &&
+              !findInviteesLoading &&
+              !validateAuthUserLoading ? (
                 <Result
                   icon={<FileExcelOutlined />}
                   title="Authentication Failed!"
