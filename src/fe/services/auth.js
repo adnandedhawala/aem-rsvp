@@ -40,5 +40,5 @@ export const validateAuthUser = async authToken => {
       ...getApplicationJsonHeader()
     },
     body: JSON.stringify({ data: authToken })
-  }).then(handleResponse);
+  }).then(handleLoginResponse);
 };
