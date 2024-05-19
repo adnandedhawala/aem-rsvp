@@ -3,8 +3,7 @@ import {
   getApiUrl,
   getApplicationJsonHeader,
   getAuthToken,
-  handleLoginResponse,
-  handleResponse
+  handleLoginResponse
 } from "../utlis";
 
 export const login = loginInfo => {
