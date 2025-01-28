@@ -1,5 +1,8 @@
 import { GlobalProvider } from "@/fe";
 import "@/styles/globals.css";
+import "react-quill/dist/quill.snow.css";
+import "react-quill/dist/quill.bubble.css";
+
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 const queryClient = new QueryClient();

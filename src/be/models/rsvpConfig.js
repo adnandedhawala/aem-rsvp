@@ -15,9 +15,6 @@ export const rsvpConfigSchema = new Schema(
     heading: {
       type: String
     },
-    sub_heading: {
-      type: String
-    },
     access: {
       id: [{ type: String }],
       conditions: [
@@ -38,6 +35,9 @@ export const rsvpConfigSchema = new Schema(
           required: true
         },
         label: {
+          type: String
+        },
+        placeholder: {
           type: String
         },
         type: {
@@ -63,6 +63,19 @@ export const rsvpConfigSchema = new Schema(
             operator: {
               type: String,
               enum: Object.values(RSVP_OPERATORS)
+            }
+          }
+        ],
+        validations: [
+          {
+            type: {
+              type: String
+            },
+            value: {
+              type: String
+            },
+            message: {
+              type: String
             }
           }
         ]

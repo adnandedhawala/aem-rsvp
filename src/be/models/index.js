@@ -15,4 +15,5 @@ export const Invitee =
 export const RsvpConfig =
   mongoose.models.RsvpConfig ||
   model("RsvpConfig", rsvpConfigSchema, "rsvpConfig");
-export const RsvpData = model("RsvpData", rsvpDataSchema, "rsvpData");
+export const RsvpData =
+  mongoose.models.RsvpData || model("RsvpData", rsvpDataSchema, "rsvpData");

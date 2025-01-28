@@ -19,7 +19,7 @@ import { useEffect } from "react";
 
 const { Content } = Layout;
 
-export default function Houses() {
+export default function AdminRSVPWithAUth() {
   const { showLoader } = useGlobalContext();
   const router = useRouter();
 
