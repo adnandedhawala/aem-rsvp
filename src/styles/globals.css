@@ -23,3 +23,71 @@
 .errorCell{
   @apply text-red-500 !border !border-red-500 !border-solid;
 }
+
+.ql-container {
+  font-size: 14px !important;
+  padding: 0 12px;
+  background-color: #ffffff;
+}
+
+.ql-container .ql-editor {
+  padding: 0;
+  min-height: 100px;
+}
+
+.ql-container .ql-editor ol,
+ul {
+  padding: 0;
+}
+
+.ql-toolbar.ql-snow + .ql-container.ql-snow {
+  padding: 12px;
+}
+
+.ql-container.ql-bubble.ql-disabled {
+  padding: 0 !important;
+}
+
+.ql-container.ql-bubble .ql-editor {
+  @apply p-4 md:p-0;
+}
+
+.richText ol,ul{
+  @apply px-6;
+}
+
+.richText h1,h2,h3,h4,h5,h6{
+  @apply font-semibold;
+}
+
+.richText .ql-indent-1{
+  @apply pl-4;
+}
+
+.richText .ql-indent-2{
+  @apply pl-8;
+}
+
+.richText .ql-indent-3{
+  @apply pl-12;
+}
+
+.richText .ql-indent-4{
+  @apply pl-16;
+}
+
+.richText .ql-indent-5{
+  @apply pl-20;
+}
+
+.richText .ql-indent-6{
+  @apply pl-24;
+}
+
+.richText .ql-indent-7{
+  @apply pl-28;
+}
+
+.richText .ql-indent-8{
+  @apply pl-32;
+}

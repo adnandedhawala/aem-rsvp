@@ -28,7 +28,7 @@ export default function Home() {
   });
 
   const redirectUserBasedOnRole = () => {
-    router.push("/admin/list");
+    router.push("/admin/rsvp/list");
   };
 
   const onFinish = values => {
@@ -67,7 +67,7 @@ export default function Home() {
                 width={100}
                 height={100}
               />
-              <h1 className="font-semibold">Sabeel Niyat Form</h1>
+              <h1 className="font-semibold">RSVP Admin Login</h1>
               <Form
                 name="login"
                 onFinish={onFinish}
